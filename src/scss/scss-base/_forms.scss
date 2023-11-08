@@ -1,0 +1,55 @@
+// Button
+.btn {
+   position: relative;
+   display: inline-block;
+   padding: 10px 18px;
+
+   &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      transform: scale(0);
+   }
+
+   span {
+      position: relative;
+      z-index: 1;
+      transition: all 0.3s ease 0s;
+   }
+
+   &:hover {
+
+      &:after {
+         transform: scale(1);
+      }
+   }
+}
+
+// Input
+input[type=text],
+input[type=email],
+input[type=tel] {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+}
+
+.input {
+   display: block;
+   height: 30px;
+   width: 100%;
+   padding: 5px;
+   font-size: 14px;
+   color: #858585;
+
+   &::placeholder {
+      color: #BBBFBF;
+   }
+}
+
+input:focus::placeholder {
+   color: transparent;
+}
