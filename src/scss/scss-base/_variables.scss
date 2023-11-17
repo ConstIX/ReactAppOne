@@ -1,19 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 // Media
 $minwidth: 320px;
-$mw: 1200px;
+$mw: 1400px;
 $md1: $mw + 12px;
 $md2: 992.98px;
 $md3: 767.98px;
 $md4: 479.98px;
 
 :root {
-   --font-main: 'Poppins', sans-serif;
-   --font-accent: 'Poppins', serif;
-}
+   --font-main: 'Roboto', sans-serif;
 
-.dark {
-   --page-bg: #000;
-   --text-color: #fff;
+   --page-bg: #fffafb;
+   --text-color: #000000;
+   --primary: #ff2625;
 }

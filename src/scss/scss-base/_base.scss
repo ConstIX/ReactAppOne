@@ -1,7 +1,5 @@
-// Shell
 body {
    background-color: var(--page-bg);
-   color: var(--text-color);
 }
 
 .wrapper {
@@ -10,10 +8,27 @@ body {
    flex-direction: column;
 }
 
-.content {
-   flex: 1 0 auto;
-   display: flex;
-   flex-direction: column;
+.header-block {
+   color: var(--text-color);
+
+   &__subtitle {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0 0 30px 0;
+   }
+
+   &__title {
+      font-size: 45px;
+      font-weight: 700;
+      line-height: 1.4;
+   }
+
+   &__text {
+      font-size: 20px;
+      line-height: 25px;
+      margin: 25px 0 45px 0;
+   }
 }
 
 // Container

@@ -1,8 +1,10 @@
 import React from 'react'
 import { Route, Routes } from 'react-router'
 
-import Footer from './pages/Footer'
-import Header from './pages/Header'
+import Footer from './components/Footer'
+import Header from './components/Header'
+import ExerciseDetails from './pages/ExerciseDetails'
+import Exercises from './pages/Exercises'
 import Home from './pages/Home'
 
 import './scss/style.scss'
@@ -16,6 +18,8 @@ function App() {
 
          <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/exercises' element={<Exercises />} />
+            <Route path='/exercise/:id' element={<ExerciseDetails />} />
          </Routes>
 
          <Footer />

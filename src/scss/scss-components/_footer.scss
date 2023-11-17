@@ -1,0 +1,24 @@
+.footer {
+   padding: 25px 0 40px 0;
+   background-color: #fff3f4;
+
+   &_n {
+      display: none;
+   }
+
+   &__body {
+      text-align: center;
+   }
+
+   &__text {
+      font-size: 30px;
+      margin: 40px 0 0 0;
+   }
+
+   @media (max-width: $md3) {
+      &__text {
+         font-size: 25px;
+         margin: 25px 0 0 0;
+      }
+   }
+}
