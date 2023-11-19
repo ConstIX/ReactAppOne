@@ -29,6 +29,14 @@ body {
       line-height: 25px;
       margin: 25px 0 45px 0;
    }
+
+   @media (max-width: $md3) {
+      &__title {
+         &_s {
+            font-size: 30px;
+         }
+      }
+   }
 }
 
 // Container
