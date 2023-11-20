@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 const Cart: React.FC = () => {
    return (
       <div className='cart__column'>
-         <Link to='' className="cart__item">
-            <img src="https://v2.exercisedb.io/image/gJoL3Eidfrv--c" alt="..." />
+         <Link to='/exercise/1' className="cart__item">
+            <img src="https://v2.exercisedb.io/image/n6UH4SuRvUvtHh" alt="..." />
             <div className="cart__tags">
                <span>Upper Arms</span>
                <span>Biceps</span>

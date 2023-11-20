@@ -23,62 +23,60 @@ const Exercises: React.FC = () => {
    const { page } = useAppSelector(state => state.filterReducer)
 
    return (
-      <section className='exersices'>
+      <section className='exercises'>
          <div className="container">
-            <div className="exersices__body">
 
-               <Search />
+            <Search />
 
-               <div className="exersices__slider">
-                  <Swiper
-                     modules={[Navigation, Pagination, Mousewheel]}
-                     spaceBetween={50}
-                     slidesPerView={4}
-                     navigation
-                     pagination={true}
-                     mousewheel={{ invert: true }}
-                     breakpoints={{
-                        280: {
-                           slidesPerView: 1,
-                           spaceBetween: 0,
-                        },
-                        480: {
-                           slidesPerView: 2,
-                           spaceBetween: 20,
-                        },
-                        767: {
-                           slidesPerView: 3,
-                           spaceBetween: 35,
-                        },
-                        992: {
-                           slidesPerView: 4,
-                           spaceBetween: 20,
-                        },
-                        1412: {
-                           slidesPerView: 4,
-                           spaceBetween: 50,
-                        },
-                     }}
-                     className="exersices__swiper"
-                  >
-                     {category.map((i) => <SwiperSlide key={i}><Category title={i} /></SwiperSlide>)}
-                  </Swiper>
-               </div>
-
-               <div className="exersices__cart cart">
-                  <div className="cart__header-block header-block">
-                     <h2 className="header-block__title header-block__title_s">Showing Results</h2>
-                  </div>
-                  <div className="cart__body">
-                     {cart.map(obj => <Cart key={obj} />)}
-                  </div>
-               </div>
-
-               <ul className="exersices__pagination">
-                  {[...Array(3)].map((_, index) => <li onClick={() => dispatch(setPage(index + 1))} className={page === index + 1 ? 'active' : ''} key={index}>{index + 1}</li>)}
-               </ul>
-
+            <div className="exercises__slider">
+               <Swiper
+                  modules={[Navigation, Pagination, Mousewheel]}
+                  spaceBetween={50}
+                  slidesPerView={4}
+                  navigation
+                  pagination={true}
+                  mousewheel={{ invert: true }}
+                  breakpoints={{
+                     280: {
+                        slidesPerView: 1,
+                        spaceBetween: 0,
+                     },
+                     480: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                     },
+                     767: {
+                        slidesPerView: 3,
+                        spaceBetween: 35,
+                     },
+                     992: {
+                        slidesPerView: 4,
+                        spaceBetween: 20,
+                     },
+                     1412: {
+                        slidesPerView: 4,
+                        spaceBetween: 50,
+                     },
+                  }}
+                  className="exercises__swiper"
+               >
+                  {category.map((i) => <SwiperSlide key={i}><Category title={i} /></SwiperSlide>)}
+               </Swiper>
             </div>
+
+            <div className="exercises__cart cart">
+               <div className="cart__header-block header-block">
+                  <h2 className="header-block__title header-block__title_s">Showing Results</h2>
+               </div>
+               <div className="cart__body">
+                  {cart.map(obj => <Cart key={obj} />)}
+               </div>
+            </div>
+
+            <ul className="exercises__pagination">
+               {[...Array(3)].map((_, index) => <li onClick={() => dispatch(setPage(index + 1))} className={page === index + 1 ? 'active' : ''} key={index}>{index + 1}</li>)}
+            </ul>
+
          </div>
       </section>
    )

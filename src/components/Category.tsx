@@ -11,7 +11,7 @@ const Category: React.FC<{ title: string }> = ({ title }) => {
    const { category } = useAppSelector(state => state.filterReducer)
 
    return (
-      <div className='exersices__category category'>
+      <div className='exercises__category category'>
          <div onClick={() => dispatch(setCategory(title))} className={`category__item ${category === title ? 'active' : ''}`}>
             <img src={image} alt="..." />
             <p className="category__title">{title}</p>

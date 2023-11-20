@@ -22,18 +22,39 @@ body {
       font-size: 45px;
       font-weight: 700;
       line-height: 1.4;
+      text-wrap: balance;
+
+      &_d {
+         font-size: 54px;
+      }
+
+      span {
+         color: var(--primary);
+      }
    }
 
    &__text {
       font-size: 20px;
-      line-height: 25px;
+      line-height: 30px;
       margin: 25px 0 45px 0;
+
+      &_d {
+         margin: 25px 0 0 0;
+      }
    }
 
    @media (max-width: $md3) {
       &__title {
-         &_s {
+
+         &_s,
+         &_d {
             font-size: 30px;
+         }
+      }
+
+      &__text {
+         &_d {
+            font-size: 18px;
          }
       }
    }
