@@ -1,4 +1,5 @@
 import React from 'react'
+import PaginationUi from '@mui/material/Pagination';
 
 import Category from '../components/Category'
 import Search from '../components/Search'
@@ -9,18 +10,22 @@ import { setPage } from '../redux/slices/filterSlice';
 
 //Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Mousewheel } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const category = ["all", "back", "cardio", "chest", "lower arms", "lower legs", "neck", "shoulders", "upper arms", "upper legs", "waist"]
-const cart = [1, 2, 3, 4, 5]
+const categories = ["all", "back", "cardio", "chest", "lower%20arms", "lower%20legs", "neck", "shoulders", "upper%20arms", "upper%20legs", "waist"]
 
 const Exercises: React.FC = () => {
 
    const dispatch = useAppDispatch()
    const { page } = useAppSelector(state => state.filterReducer)
+   const { exercises } = useAppSelector(state => state.exercisesReducer)
+
+   const indexOfLastExercise = page * 6;
+   const indexOfFirstExercise = indexOfLastExercise - 6;
+   const currentExercises = exercises.slice(indexOfFirstExercise, indexOfLastExercise);
 
    return (
       <section className='exercises'>
@@ -30,12 +35,11 @@ const Exercises: React.FC = () => {
 
             <div className="exercises__slider">
                <Swiper
-                  modules={[Navigation, Pagination, Mousewheel]}
+                  modules={[Navigation, Pagination]}
                   spaceBetween={50}
                   slidesPerView={4}
                   navigation
                   pagination={true}
-                  mousewheel={{ invert: true }}
                   breakpoints={{
                      280: {
                         slidesPerView: 1,
@@ -60,7 +64,7 @@ const Exercises: React.FC = () => {
                   }}
                   className="exercises__swiper"
                >
-                  {category.map((i) => <SwiperSlide key={i}><Category title={i} /></SwiperSlide>)}
+                  {categories.map((i) => <SwiperSlide key={i}><Category title={i} /></SwiperSlide>)}
                </Swiper>
             </div>
 
@@ -69,13 +73,23 @@ const Exercises: React.FC = () => {
                   <h2 className="header-block__title header-block__title_s">Showing Results</h2>
                </div>
                <div className="cart__body">
-                  {cart.map(obj => <Cart key={obj} />)}
+                  {currentExercises.map(obj => <Cart key={obj.id} {...obj} />)}
                </div>
             </div>
 
-            <ul className="exercises__pagination">
-               {[...Array(3)].map((_, index) => <li onClick={() => dispatch(setPage(index + 1))} className={page === index + 1 ? 'active' : ''} key={index}>{index + 1}</li>)}
-            </ul>
+            {exercises.length > 6 &&
+               <div className="exercises__pagination">
+                  <PaginationUi
+                     color="standard"
+                     shape="rounded"
+                     defaultPage={1}
+                     count={Math.ceil(exercises.length / 6)}
+                     page={page}
+                     onChange={(_, value) => dispatch(setPage(value))}
+                     size="small"
+                  />
+               </div>
+            }
 
          </div>
       </section>

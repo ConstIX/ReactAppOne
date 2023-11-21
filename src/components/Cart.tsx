@@ -1,17 +1,26 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-const Cart: React.FC = () => {
+type CartProps = { id: string, gifUrl: string, target: string, equipment: string, name: string }
+
+const Cart: React.FC<CartProps> = ({ id, gifUrl, target, equipment, name }) => {
+
+   const navigate = useNavigate()
+   const onClickHandler = () => {
+      navigate(`/exercise/${id}`)
+      window.location.reload()
+   }
+
    return (
       <div className='cart__column'>
-         <Link to='/exercise/1' className="cart__item">
-            <img src="https://v2.exercisedb.io/image/n6UH4SuRvUvtHh" alt="..." />
+         <div onClick={onClickHandler} className="cart__item">
+            <img src={gifUrl} alt="..." />
             <div className="cart__tags">
-               <span>Upper Arms</span>
-               <span>Biceps</span>
+               <span>{equipment}</span>
+               <span>{target}</span>
             </div>
-            <h4 className="cart__title">Lorem, ipsum dolor. Lorem ipsum dolor sit amet.</h4>
-         </Link>
+            <h4 className="cart__title">{name}</h4>
+         </div>
       </div>
    )
 }

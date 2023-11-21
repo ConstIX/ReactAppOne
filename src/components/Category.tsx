@@ -14,7 +14,7 @@ const Category: React.FC<{ title: string }> = ({ title }) => {
       <div className='exercises__category category'>
          <div onClick={() => dispatch(setCategory(title))} className={`category__item ${category === title ? 'active' : ''}`}>
             <img src={image} alt="..." />
-            <p className="category__title">{title}</p>
+            <p className="category__title">{title.replace(/[^a-zа-яё]/gi, ' ')}</p>
          </div>
       </div>
    )

@@ -22,10 +22,12 @@ body {
       font-size: 45px;
       font-weight: 700;
       line-height: 1.4;
+      text-transform: capitalize;
       text-wrap: balance;
 
       &_d {
          font-size: 54px;
+         margin: 0 0 25px 0;
       }
 
       span {
@@ -39,7 +41,7 @@ body {
       margin: 25px 0 45px 0;
 
       &_d {
-         margin: 25px 0 0 0;
+         margin: 0;
       }
    }
 

@@ -1,6 +1,8 @@
 .details {
    padding: 200px 0 100px 0;
    flex: 1 0 auto;
+   display: flex;
+   flex-direction: column;
 
    &__slider {
       margin: 150px 0 0 0;
@@ -104,8 +106,16 @@
       p {
          font-size: 24px;
          font-weight: 700;
+         text-transform: capitalize;
          color: var(--text-color);
       }
+   }
+
+   &__preloader {
+      flex: 1 0 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
    }
 
    @media (max-width: $md1) {
